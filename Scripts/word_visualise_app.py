@@ -95,10 +95,8 @@ with col1:
 with col2:
     filter_bi = st.selectbox("Phrase type",("bigram","trigram"))
     filter_year =names[-1]
-
 word_ignore = ['cell rna seq','cell rna',"answer question","neural network deep",'cell cell','severe acute respiratory','alzheimers dementia alzheimers','syndrome coronavirus sars','alzheimers alzheimers disease','confidence interval ci','cd cd cell','cd cd','prospective teacher','primary secondary','log log log']
-st.write("../Data/Paper_Details/New_Results/"+filter_bi+"_"+text_type+method+str(filter_gap)+field+".xlsx")
-xlsx = pd.ExcelFile("../Data/Paper_Details/New_Results/"+filter_bi+"_"+text_type+method+str(filter_gap)+field+".xlsx",engine='openpyxl')
+xlsx = pd.ExcelFile("../Data/Paper_Details/New_Results/"+filter_bi+"_"+text_type+method+str(filter_gap)+field+".xlsx")
 sheet = xlsx.parse(sheet_name=filter_year)
 sheet = sheet[~sheet['term'].isin(word_ignore)]
 sheet.reset_index(drop=True)
